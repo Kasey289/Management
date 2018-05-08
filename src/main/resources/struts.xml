@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!-- 将Action交给spring容器管理 -->
+    <constant name="struts.objectFactory" value="spring" />
+
+
+    <!-- 模式为开发模式，修改xml配置文件会自动加载，项目交付的时候设置为false,以免影响性能 -->
+    <constant name="struts.devMode" value="false" />
+
+    <package name="defaultPackage" namespace="/" extends="struts-default">
+        <action name="login" class="com.management.action.UserAction" method="login">
+            <result name="success">index.jsp</result>
+            <result name="error">login.jsp</result>
+        </action>
+
+    </package>
+</struts>
